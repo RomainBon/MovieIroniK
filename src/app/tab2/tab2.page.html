@@ -1,9 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
+  <ion-toolbar color="dark">
+    <ion-title color="primary">
+      Rechercher un film
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-searchbar showCancalButton placeholder="Rentrer Recherche" cancelButtonText="Annuler" #searchInput (ionInput)="search(searchInput.value)"></ion-searchbar>
+    </ion-list-header>
+    <ion-item color="light" (click)="detail(movie.id)" *ngFor="let movie of movies$">
+      {{movie.title}} <strong>Titre orignal</strong> {{movie.original_title}}
+    </ion-item>
+  </ion-list>
+</ion-content>
